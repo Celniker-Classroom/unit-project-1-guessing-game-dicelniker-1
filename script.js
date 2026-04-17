@@ -11,9 +11,14 @@ let playerName = prompt("Enter your name:");
 // --- Play ---
 document.getElementById("playBtn").addEventListener("click", function () {
   let radios = document.getElementsByName("level");
+  play(radios);
+
+});
+
+function play(lev){
   let range = 3;
-  for (let i = 0; i < radios.length; i++) {
-    if (radios[i].checked) {
+  for (let i = 0; i < lev.length; i++) {
+    if (lev[i].checked) {
       range = parseInt(radios[i].value);
     }
   }
@@ -29,11 +34,9 @@ document.getElementById("playBtn").addEventListener("click", function () {
     document.getElementById("playBtn").disabled = true;
 
     //disable radio level selection
-    for (let i = 0; i < radios.length; i++) {
-        radios[i].disabled = true;
+    for (let i = 0; i < lev.length; i++) {
+        lev[i].disabled = true;
     }
-
-});
 
 //Guessing
 document.getElementById("guessBtn").addEventListener("click", function(){
